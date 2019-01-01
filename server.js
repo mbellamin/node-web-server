@@ -25,21 +25,25 @@ hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
 });
 
-hbs.registerHelper('toUpper', (string) => {
-  return string.toUpperCase();
+hbs.registerHelper('getUserName', () => {
+  return username;
 });
 
 app.get('/', (req, res) => {
   res.render('./home', {
-    title: 'Home Page',
-    username: username
+    title: 'Home Page'
   });
 });
 
 app.get('/about', (req, res) => {
   res.render('./about', {
-    title: 'About Page',
-    username: username
+    title: 'About Page'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('./projects', {
+    title: 'Projects Page'
   });
 });
 
@@ -51,5 +55,5 @@ app.get('/bad', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is up and running on port ' + port);
+  console.log(`Server is up and running on port ${port}.`);
 });
